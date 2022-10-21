@@ -4,6 +4,7 @@ using Labbeh.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Labbeh.Controllers;
 [Authorize]
@@ -12,12 +13,14 @@ public class DriversCompaniesCatController : Controller
     public readonly IDriverComCatRepo _driverComCatRepo;
     public readonly IDriverCompanyRepo _driverCompanyRepo;
     public readonly IDriverCompContractRepo _driverCompContractRepo;
-    public readonly IDriverRepo driverRepo;
+    public readonly IDriverRepo _driverRepo;
     private readonly DBContext context;
-    public DriversCompaniesCatController(IDriverComCatRepo driverComCatRepo, IDriverCompanyRepo driverCompanyRepo)
+    public DriversCompaniesCatController(IDriverComCatRepo driverComCatRepo, IDriverCompanyRepo driverCompanyRepo,IDriverRepo driverRepo)
     {
         _driverComCatRepo = driverComCatRepo;
         _driverCompanyRepo = driverCompanyRepo;
+        _driverRepo = driverRepo;
+        
     }
     public IActionResult Index()
     {
@@ -290,6 +293,5 @@ public class DriversCompaniesCatController : Controller
     //////DriverCompanyCategory
 
     //////Drivers
-    
-
+   
 }
