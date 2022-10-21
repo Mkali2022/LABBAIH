@@ -13,7 +13,7 @@ public class DriversCompaniesCatController : Controller
     public readonly IDriverComCatRepo _driverComCatRepo;
     public readonly IDriverCompanyRepo _driverCompanyRepo;
     public readonly IDriverCompContractRepo _driverCompContractRepo;
-    public readonly IDriverRepo _driverRepo;
+    public readonly IDriverRepo _driverRepo; 
     private readonly DBContext context;
     public DriversCompaniesCatController(IDriverComCatRepo driverComCatRepo, IDriverCompanyRepo driverCompanyRepo,IDriverRepo driverRepo)
     {
@@ -293,5 +293,12 @@ public class DriversCompaniesCatController : Controller
     //////DriverCompanyCategory
 
     //////Drivers
-   
+    public IActionResult CreateDriver()
+    {
+        Drivers company = new Drivers();
+        ViewData["CompanyName"] = new SelectList(context.Set<DriverCompany>(), "Id", "CompanyName");//Category to view will be select All CompanyName to list
+        return View(company);
+    }
+    
+    
 }
