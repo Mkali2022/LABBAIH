@@ -4,12 +4,15 @@ using Labbeh.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Data.SqlClient;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Labbeh.Controllers;
 [Authorize]
 public class DriversCompaniesCatController : Controller
 {
+
+  
     public readonly IDriverComCatRepo _driverComCatRepo;
     public readonly IDriverCompanyRepo _driverCompanyRepo;
     public readonly IDriverCompContractRepo _driverCompContractRepo;
@@ -20,7 +23,8 @@ public class DriversCompaniesCatController : Controller
         _driverComCatRepo = driverComCatRepo;
         _driverCompanyRepo = driverCompanyRepo;
         _driverRepo = driverRepo;
-        
+  
+ 
     }
     public IActionResult Index()
     {
@@ -39,6 +43,7 @@ public class DriversCompaniesCatController : Controller
     [HttpPost]
     public IActionResult Create(DriversCompaniesCat driversCompaniesCat)
     {
+        
         bool bolret = false;
         string errMessage = "";
         try

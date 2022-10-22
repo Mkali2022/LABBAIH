@@ -18,15 +18,15 @@ namespace Labbeh.Repository
         {
             this.context = context;
         }
-        
+
 
         public bool Create(DriverCompany driversCompany)
         {
             try
             {
-               
-                if (IsDriversCompanyExists(driversCompany.CompanyName)) return false;
-                if (IsValid(driversCompany)) return false;
+
+                //if (IsDriversCompanyExists(driversCompany.CompanyName)) return false;
+               // if (IsValid(driversCompany)) return false;
                 context.driverCompanies.Add(driversCompany);
                 context.SaveChanges();
                 return true;
@@ -66,7 +66,7 @@ namespace Labbeh.Repository
             }
             catch (Exception ex)
             {
-                _errors = "Updatej Failed - sql Exeception Occured , Error Info : " + ex.Message;
+                _errors = "Update Failed - sql Exeception Occured , Error Info : " + ex.Message;
                 return false;
             }
         }
@@ -103,12 +103,13 @@ namespace Labbeh.Repository
         }
         private bool IsValid(DriverCompany driversCompany)
         {
+            /*
             if (driversCompany.CompanyName.Length < 4 || driversCompaniesCat.CompaniesType == null)
             {
                 _errors = "CompaniesName Must be atleast 4 Characters";
                 return false;
 
-            }
+            }*/
             return true;
 
         }

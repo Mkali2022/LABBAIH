@@ -10,6 +10,7 @@ namespace Labbeh.Repository
 {
     public class DriverComCatRepo : IDriverComCatRepo
     {
+        
         private readonly DBContext context;
         private string _errors = "";
         public DriverComCatRepo(DBContext context)
@@ -20,31 +21,34 @@ namespace Labbeh.Repository
         {
             try
             {
-                if (IsDriversCompaniesCatExists(driversCompaniesCat.CompaniesType)) return false;
-                if (IsValid(driversCompaniesCat)) return false;
+                //if(IsDriversCompaniesCatExists(driversCompaniesCat.CompaniesType)) return false; 
 
-
-                //if (Test.IsValiddd(driversCompaniesCat.CompaniesType)) return false;
+                if (IsValid(driversCompaniesCat)) { return false; }
                 
 
-                context.DriversCompaniesCats.Add(driversCompaniesCat);
-                context.SaveChanges();
-                return true;
+
+                    //if (Test.IsValiddd(driversCompaniesCat.CompaniesType)) return false;
+
+
+                    context.DriversCompaniesCats.Add(driversCompaniesCat);
+                    context.SaveChanges();
+                    return true;
+                
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _errors = "Create Failed -sql Exeception Occured , Error Info : " + ex.Message;
                 return false;
             }
         }
 
-        
+
 
         public bool Edit(DriversCompaniesCat driversCompaniesCat)
         {
             try
             {
-                if (IsDriversCompaniesCatExists(driversCompaniesCat.CompaniesType)) return false;
+                //if (IsDriversCompaniesCatExists(driversCompaniesCat.CompaniesType)) return false;
 
 
                 context.DriversCompaniesCats.Attach(driversCompaniesCat);
@@ -59,18 +63,18 @@ namespace Labbeh.Repository
             }
         }
 
-       
+
 
         public string GetErrors()
         {
             return _errors;
         }
-        
+
         public List<DriversCompaniesCat> GitAllDriverComCat()
         {
-
+            
             var item = context.DriversCompaniesCats.ToList();
-            return item.ToList();
+            return item;
         }
 
         public DriversCompaniesCat GitDriverComCatByID(int id)
@@ -82,28 +86,28 @@ namespace Labbeh.Repository
         public bool IsDriversCompaniesCatExists(string name)
         {
             int ct = context.DriversCompaniesCats.Where(x => x.CompaniesType == name).Count();
-            if (ct > 0) 
+            if (ct > 0)
             {
                 _errors = "Name" + name + " Exists Alredy";
-                return true; 
+                return true;
             }
-            else 
+            else
             {
-                return false; 
+                return false;
             };
-           
-     
+
+
         }
         private bool IsValid(DriversCompaniesCat driversCompaniesCat)
         {
-            if(driversCompaniesCat.CompaniesType.Length < 4 || driversCompaniesCat.CompaniesType == null)
+            if (driversCompaniesCat.CompaniesType.Length < 4 || driversCompaniesCat.CompaniesType == null)
             {
                 _errors = "CompaniesCategoryType Must be atleast 4 Characters";
-                return false;
+                return true;
 
             }
-            return true;
-                
+            return false;
+
         }
         /*
         public string InserDriversCompaniesCat(DriversCompaniesCat driversCompaniesCat)
