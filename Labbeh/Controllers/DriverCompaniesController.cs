@@ -23,7 +23,7 @@ namespace Labbeh.Controllers
         {
             _context = context;
             _driverComCatRepo = driverComCatRepo;
-            this._driverCompanyRepo = driverCompanyRepo;
+           _driverCompanyRepo = driverCompanyRepo;
         }
 
         // GET: DriverCompanies

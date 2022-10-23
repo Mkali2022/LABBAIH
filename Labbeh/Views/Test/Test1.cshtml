@@ -1,0 +1,22 @@
+﻿@model Labbeh.ViewModel.CumpanyCatehoryTest
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="container">
+    <form class="form-group" method="post" asp-action="Test1">
+        <label class="col-form-label">CompanyCategory</label>
+        <select class="form-control" asp-for="DriverCompCatID" asp-items="@(new SelectList(Model.driversCompaniesCats,"ID","CompaniesType"))"></select>
+        <label class="col-form-label">Code</label>
+        <input asp-for="Code" class="form-control" />
+        <label class="col-form-label">CompanyName</label>
+        <input asp-for="CompanyName" class="form-control" />
+        <label class="col-form-label">CompanyAddress</label>
+        <input asp-for="CompanyAddress" class="form-control" />
+        <label class="col-form-label">Phone1</label>
+        <input asp-for="Phone1" class="form-control" />
+        <label class="col-form-label">Phone2</label>
+        <input asp-for="Phone2" class="form-control" />
+        <button class="btn btn-block btn-outline-dark mt-2" type="submit">Save Company</button>
+    </form>
+
+</div>
