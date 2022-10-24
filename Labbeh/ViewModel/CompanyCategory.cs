@@ -2,7 +2,7 @@
 
 namespace Labbeh.ViewModel
 {
-    public class CumpanyCatehoryTest
+    public class CompanyCategory
     {
         public List<DriversCompaniesCat> driversCompaniesCats{ get; set; }
         public int ID { get; set; }

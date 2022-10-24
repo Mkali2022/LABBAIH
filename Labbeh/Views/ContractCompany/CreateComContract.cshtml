@@ -1,0 +1,33 @@
+﻿@model Labbeh.ViewModel.CompanyContractcs
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="container">
+    <form class="form-group" method="post" asp-action="CreateComContract">
+        <label class="col-form-label">Contract</label>
+        <select class="form-control" asp-for="DriverCompID" asp-items="@(new SelectList(Model.driverCompanies,"ID","CompanyName"))"></select>
+        <label class="col-form-label">Code</label>
+        <input asp-for="Code" class="form-control" />
+
+        <label class="col-form-label">OwnerName</label>
+        <input asp-for="OwnerName" class="form-control" />
+
+        <label class="col-form-label">OrganizationAddress</label>
+        <input asp-for="OrganizationAddress" class="form-control" />
+
+        <label class="col-form-label">DateFrom</label>
+        <input asp-for="DateFrom" class="form-control" />
+
+        <label class="col-form-label">DateTo</label>
+        <input asp-for="DateTo" class="form-control" />
+
+        <label class="col-form-label">Phone1</label>
+        <input asp-for="Phone1" class="form-control" />
+
+        <label class="col-form-label">Phone2</label>
+        <input asp-for="Phone2" class="form-control" />
+
+        <button class="btn btn-block btn-outline-dark mt-2" type="submit">Save Company Contract</button>
+    </form>
+
+</div>

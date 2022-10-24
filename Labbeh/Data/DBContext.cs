@@ -1,5 +1,6 @@
 ﻿using Labbeh.Models;
 using Microsoft.EntityFrameworkCore;
+using Labbeh.ViewModel;
 
 namespace Labbeh.Data
 {
@@ -53,6 +54,7 @@ namespace Labbeh.Data
         public DbSet<Vehicles> Vehicles { get; set; }
         public DbSet<EvaluateAnswer> EvaluateAnswers { get; set; }
         public DbSet<Answer> Answers { get; set; }
+        public DbSet<Labbeh.ViewModel.CompanyCategory> CumpanyCatehoryTest { get; set; }
 
 
 

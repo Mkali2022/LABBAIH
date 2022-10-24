@@ -23,7 +23,7 @@ namespace Labbeh.Repository
             {
                 //if(IsDriversCompaniesCatExists(driversCompaniesCat.CompaniesType)) return false; 
 
-                if (IsValid(driversCompaniesCat)) { return false; }
+                //if (IsValid(driversCompaniesCat)) { return false; }
                 
 
 

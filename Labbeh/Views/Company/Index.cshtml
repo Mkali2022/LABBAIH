@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Labbeh.Models.DriverCompany>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetAllCompany</title>
+</head>
+<body>
+    <p>
+        <a asp-action="CreateCompany">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Code)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CompanyName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CompanyAddress)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Phone1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Phone2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DriversCompaniesCats.CompaniesType)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Code)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CompanyName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CompanyAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Phone1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Phone2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DriversCompaniesCats.CompaniesType)
+                    </td>
+                    <td>
+                        <a asp-action="EditCompany" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

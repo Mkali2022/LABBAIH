@@ -12,7 +12,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IDriverComCatRepo, DriverComCatRepo>();////////NEW
-builder.Services.AddScoped<IDriverCompanyRepo, DriverCompanyRepo>();////////NEW
+builder.Services.AddScoped<IDriverCompanyRepo, DriverCompanyRepo>();
+builder.Services.AddScoped<IDriverCompContractRepo, DriverCompContractRepo>();////////NEW
 builder.Services.AddDbContext<DBContext>(option =>
 option.UseSqlServer(builder.Configuration.GetConnectionString("LabbehConnection")));
 
@@ -39,6 +40,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Test}/{action=Test1}/{id?}");
+    pattern: "{controller=ContractCompany}/{action=Index}/{id?}");
 
 app.Run();
