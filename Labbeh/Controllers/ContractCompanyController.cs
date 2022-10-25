@@ -1,6 +1,7 @@
 ﻿using Labbeh.Data;
 using Labbeh.IRepository;
 using Labbeh.Models;
+using Labbeh.Repository;
 using Labbeh.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
@@ -116,5 +117,23 @@ namespace Labbeh.Controllers
                 return RedirectToAction(nameof(Index));
             }
         }
+
+        public IActionResult GetAllCompany()
+        {
+            CompanyContractcs vM = new CompanyContractcs
+            {
+                driverCompanies = _dbContext.driverCompanies.ToList(),
+
+            };
+            return View(vM);
+        }
+
+        public IActionResult GetById(int id)
+        {
+            var contract = _driverCompContractRepo.GitDriverCompContractByID(id);
+
+            return View(contract);
+        }
+
     }
 }

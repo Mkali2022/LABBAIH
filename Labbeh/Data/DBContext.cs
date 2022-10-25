@@ -29,7 +29,7 @@ namespace Labbeh.Data
         public DbSet<DriverCompContract> DriverCompContracts { get; set; }
         public DbSet<DriverContractEvaluate> DriverContractEvaluates { get; set; }
         public DbSet<Drivers> Drivers { get; set; }
-        public DbSet<DriversCompaniesCat> DriversCompaniesCats { get; set; }
+        public DbSet<DriversCompaniesCat> DriversCompaniesCats { get; set; }      
         public DbSet<DriversContract> DriversContracts { get; set; }
         public DbSet<DriverTracking> DriverTrackings { get; set; }
         public DbSet<DriverTrackingOrder> DriverTrackingOrders { get; set; }

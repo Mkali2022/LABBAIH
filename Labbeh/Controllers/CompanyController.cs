@@ -31,10 +31,12 @@ namespace Labbeh.Controllers
         }
         public IActionResult GetAllCompany()
         {
-            
-            var company = _driverCompanyRepo.GitAllDriverCom();
+            CompanyCategory vM = new CompanyCategory
+            {
+                driversCompaniesCats = _dbContext.DriversCompaniesCats.ToList(),
 
-            return View(company.ToList());
+            };
+            return View(vM);
         }
         [HttpGet]
         public IActionResult CreateCompany()
@@ -126,6 +128,12 @@ namespace Labbeh.Controllers
                 TempData["SuccessMessage"] = "" + vM.CompanyName + " Created Successfully";
                 return RedirectToAction(nameof(Index));
             }
+        }
+        public IActionResult GetById(int id)
+        {
+            var company = _driverCompanyRepo.GitDriverComByID(id);
+
+            return View(company);
         }
 
 
