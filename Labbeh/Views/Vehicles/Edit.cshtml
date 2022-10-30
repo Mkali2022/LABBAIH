@@ -1,0 +1,14 @@
+﻿@model Labbeh.Models.Vehicles
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="container">
+    <form class="form-group" method="post" asp-action="Edit">
+        <label class="col-form-label">VehicleCode</label>
+        <input asp-for="Code" class="form-control" />
+        <label class="col-form-label">VehicleName</label>
+        <input asp-for="VehicleName" class="form-control" />
+        <button class="btn btn-block btn-outline-dark mt-2" type="submit">Save Company</button>
+    </form>
+
+</div>

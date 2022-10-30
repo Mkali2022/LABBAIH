@@ -127,12 +127,11 @@ namespace Labbeh.Controllers
             };
             return View(vM);
         }
-
         public IActionResult GetById(int id)
         {
-            var contract = _driverCompContractRepo.GitDriverCompContractByID(id);
+            var comCon = _driverCompContractRepo.GitDriverCompContractByID(id);
 
-            return View(contract);
+            return View(comCon);
         }
 
     }

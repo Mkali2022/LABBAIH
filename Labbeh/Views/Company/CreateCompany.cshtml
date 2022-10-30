@@ -3,7 +3,7 @@
     ViewData["Title"] = "Home Page";
 }
 <div class="container">
-    <form class="form-group" method="post" asp-action="Test1">
+    <form class="form-group" method="post" asp-action="CreateCompany">
         <label class="col-form-label">CompanyCategory</label>
         <select class="form-control" asp-for="DriverCompCatID" asp-items="@(new SelectList(Model.driversCompaniesCats,"ID","CompaniesType"))"></select>
         <label class="col-form-label">Code</label>
@@ -16,7 +16,10 @@
         <input asp-for="Phone1" class="form-control" />
         <label class="col-form-label">Phone2</label>
         <input asp-for="Phone2" class="form-control" />
-        <button class="btn btn-block btn-outline-dark mt-2" type="submit">Save Company</button>
+        <button class="btn btn-block btn-outline-dark mt-2" type="button">Save Company</button>
     </form>
 
 </div>
+<script>
+    
+</script>

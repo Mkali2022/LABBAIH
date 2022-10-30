@@ -1,0 +1,20 @@
+﻿@model Labbeh.ViewModel.DriverVehiclesVm
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="container">
+    <form class="form-group" method="post" asp-action="Edit">
+        <label class="col-form-label">CompanyCategory</label>
+        <select class="form-control" asp-for="DriverID" asp-items="@(new SelectList(Model.drivers,"ID","DriverName"))"></select>
+        <label class="col-form-label">DriverCompany</label>
+        <select class="form-control" asp-for="VehicleID" asp-items="@(new SelectList(Model.vehicles,"ID","VehicleName"))"></select>
+        <label class="col-form-label">DriverVehiclesName</label>
+        <input asp-for="Code" class="form-control" />
+        <label class="col-form-label">UsingDate</label>
+        <input asp-for="UsingDate" class="form-control" />
+        <button class="btn btn-block btn-outline-dark mt-2" type="button">Save Driver</button>
+    </form>
+</div>
+<script>
+
+</script>

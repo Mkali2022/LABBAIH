@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Labbeh.Models.DriversCompaniesCat>
+﻿@model IEnumerable<Labbeh.Models.Vehicles>
 
 @{
     Layout = null;
@@ -22,7 +22,7 @@
                 @Html.DisplayNameFor(model => model.Code)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CompaniesType)
+                @Html.DisplayNameFor(model => model.VehicleName)
             </th>
             <th></th>
         </tr>
@@ -34,7 +34,7 @@
                 @Html.DisplayFor(modelItem => item.Code)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CompaniesType)
+                @Html.DisplayFor(modelItem => item.VehicleName)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |

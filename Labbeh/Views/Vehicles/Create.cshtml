@@ -1,4 +1,4 @@
-﻿@model Labbeh.Models.DriversCompaniesCat
+﻿@model Labbeh.Models.Vehicles
 
 @{
     Layout = null;
@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<h4>DriversCompaniesCat</h4>
+<h4>Vehicles</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -25,9 +25,9 @@
                 <span asp-validation-for="Code" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CompaniesType" class="control-label"></label>
-                <input asp-for="CompaniesType" class="form-control" />
-                <span asp-validation-for="CompaniesType" class="text-danger"></span>
+                <label asp-for="VehicleName" class="control-label"></label>
+                <input asp-for="VehicleName" class="form-control" />
+                <span asp-validation-for="VehicleName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

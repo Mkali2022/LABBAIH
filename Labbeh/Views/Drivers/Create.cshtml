@@ -1,0 +1,30 @@
+﻿@model Labbeh.ViewModel.DriversVm
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="container">
+    <form class="form-group" method="post" asp-action="Create">
+        <label class="col-form-label">CompanyCategory</label>
+        <select class="form-control" asp-for="DriverTTypeId" asp-items="@(new SelectList(Model.driversCompaniesCats,"ID","CompaniesType"))"></select>
+        <label class="col-form-label">DriverCompany</label>
+        <select class="form-control" asp-for="DriverCompanyId" asp-items="@(new SelectList(Model.driverCompanies,"ID","CompanyName"))"></select>
+        <label class="col-form-label">DriverCode</label>
+        <input asp-for="DriverCode" class="form-control" />
+        <label class="col-form-label">DriverName</label>
+        <input asp-for="DriverName" class="form-control" />
+        <label class="col-form-label">DriverPhone</label>
+        <input asp-for="DriverPhone" class="form-control" />
+        <label class="col-form-label">LatitudeDefault</label>
+        <input asp-for="LatitudeDefault" class="form-control" />
+        <label class="col-form-label">LongtitudeDefault</label>
+        <input asp-for="LongtitudeDefault" class="form-control" />
+        <label class="col-form-label">DriverEmail</label>
+        <input asp-for="DriverEmail" class="form-control" />
+        <label class="col-form-label">Status</label>
+        <input asp-for="Status" class="form-control" />
+        <button class="btn btn-block btn-outline-dark mt-2" type="button">Save Driver</button>
+    </form>
+</div>
+<script>
+
+</script>

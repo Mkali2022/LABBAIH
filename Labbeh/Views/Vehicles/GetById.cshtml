@@ -1,4 +1,4 @@
-﻿@model Labbeh.Models.DriversCompaniesCat
+﻿@model Labbeh.Models.Vehicles
 
 @{
     Layout = null;
@@ -9,12 +9,12 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
+    <title>GetById</title>
 </head>
 <body>
 
 <div>
-    <h4>DriversCompaniesCat</h4>
+    <h4>Vehicles</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -24,10 +24,10 @@
             @Html.DisplayFor(model => model.Code)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CompaniesType)
+            @Html.DisplayNameFor(model => model.VehicleName)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CompaniesType)
+            @Html.DisplayFor(model => model.VehicleName)
         </dd>
     </dl>
 </div>
