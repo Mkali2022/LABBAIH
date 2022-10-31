@@ -1,1 +1,17 @@
-﻿
+﻿@model Labbeh.ViewModel.CompanyAll
+<h1>Ajax Test</h1>
+<div class="container">
+    <label class="col-form-label">Contract</label>
+    <select class="form-control country" asp-for="DriverCompID" asp-items="@(new SelectList(Model.driverCompanies,"ID","CompanyName"))"></select>
+    <label class="col-form-label">Code</label>
+    <label class="col-form-label">OwnerName</label>
+    <label class="col-form-label">OrganizationAddress</label>
+    <label class="col-form-label">DateFrom</label>
+    <label class="col-form-label">DateTo</label>
+    <label class="col-form-label">Phone1</label>
+    <label class="col-form-label">Phone2</label>
+    <select class="form-control city"></select>
+    <button class="btn btn-block btn-outline-dark mt-2" type="submit">Save Company Contract</button>
+
+
+</div>

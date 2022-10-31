@@ -1,7 +1,7 @@
 ﻿@model Labbeh.ViewModel.DriversVm
-@{
+@*@{
     ViewData["Title"] = "Home Page";
-}
+}*@
 <div class="container">
     <form class="form-group" method="post" asp-action="Create">
         <label class="col-form-label">CompanyCategory</label>
@@ -22,7 +22,7 @@
         <input asp-for="DriverEmail" class="form-control" />
         <label class="col-form-label">Status</label>
         <input asp-for="Status" class="form-control" />
-        <button class="btn btn-block btn-outline-dark mt-2" type="button">Save Driver</button>
+        <button class="btn btn-block btn-outline-dark mt-2" type="submit" value="Create">Save Driver</button>
     </form>
 </div>
 <script>

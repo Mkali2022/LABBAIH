@@ -1,0 +1,32 @@
+﻿@section Scripts{
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+                type="GET",
+                url: "@Url.Action("GetNames")",
+                dataType: "json",
+                success: function (result) {
+                    console.log(result);
+                },
+                Error: function (req, status, error) {
+                    console.log(status)
+                }
+            })
+
+            $.ajax({
+                type="POST",
+                url: "@Url.Action("PostName")",
+                dataType: "json",
+                data: { name: "Jannick" },
+                success: function (result) {
+                    console.log(result);
+                },
+                Error: function (req, status, error) {
+                    console.log(status)
+                }
+            })
+        })
+        
+    </script>
+
+}

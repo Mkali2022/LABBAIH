@@ -1,16 +1,17 @@
 ﻿@model IEnumerable<Labbeh.Models.DriverCompany>
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_LayoutCompany.cshtml";
+
 }
 
-<!DOCTYPE html>
+@*<!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>GetAllCompany</title>
-</head>
+</head>*@
 <body>
     <p>
         <a asp-action="CreateCompany">Create New</a>
@@ -71,4 +72,5 @@
         </tbody>
     </table>
 </body>
-</html>
+@*</html>
+*@
