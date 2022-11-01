@@ -1,7 +1,7 @@
 ﻿@model Labbeh.ViewModel.CompanyCategory
 
 @{
-    /*Layout = "~/Views/Shared/_Layout.cshtml"*/;
+    //Layout = "~/Views/Shared/_LayoutTest.cshtml";
     Layout = null;
 
 }
@@ -26,3 +26,62 @@
     </div>
 </body>
 
+
+
+
+
+
+
+
+
+
+@*
+
+
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.1/dist/bootstrap-table.min.css">
+    <script src="https://unpkg.com/bootstrap-table@1.21.1/dist/bootstrap-table.min.js"></script>
+</head>
+<body>
+<form method="post" asp-action="CreateCompany">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputEmail4">Code</label>
+            <input asp-for="Code" class="form-control" id="inputEmail4" placeholder="Code">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputPassword4">CompanyName</label>
+            <input asp-for="CompanyName" class="form-control" id="inputPassword4" placeholder="CompanyName">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputAddress">CompanyAddress</label>
+        <input asp-for="CompanyAddress" class="form-control" id="inputAddress" placeholder="CompanyAddress">
+    </div>
+    <div class="form-group">
+        <label for="inputAddress2">Address 2</label>
+        <input asp-for="Phone1" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputCity">Phone1</label>
+            <input type="text" class="form-control" id="inputCity">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputCity">Phone2</label>
+            <input asp-for="Phone2" class="form-control" id="inputCity">
+        </div>
+
+
+        <div class="form-group col-md-4">
+            <label for="inputState">State</label>
+            <select class="form-control" id="inputState" asp-for="DriverCompCatID" asp-items="@(new SelectList(Model.driversCompaniesCats,"ID","CompaniesType"))"></select>
+        </div>
+        
+    <button class="btn btn-primary" type="submit" value="CreateCompany">Save Company</button>
+    
+</form>
+</body>
+</html>*@
