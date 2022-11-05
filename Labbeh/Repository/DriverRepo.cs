@@ -17,10 +17,14 @@ namespace Labbeh.Repository
         {
             try
             {
-                if (IsDriversExists(drivers.DriverName)) return false;
-                context.Drivers.Add(drivers);
-                context.SaveChanges();
-                return true;
+                //if (IsDriversExists(drivers.DriverName)) { return false; }
+                if (Test.PhoneNumber(drivers.DriverPhone))
+                {
+                    context.drivers.Add(drivers);
+                    context.SaveChanges();
+                    return true;
+                }
+                { return false; }
             }
             catch (Exception ex)
             {
@@ -34,7 +38,7 @@ namespace Labbeh.Repository
             try
             {
                 if (IsDriversExists(drivers.DriverName)) return false;
-                context.Drivers.Attach(drivers);
+                context.drivers.Attach(drivers);
                 context.Entry(drivers).State = EntityState.Modified;
                 context.SaveChanges();
                 return true;
@@ -53,19 +57,19 @@ namespace Labbeh.Repository
 
         public List<Drivers> GitAllDriver()
         {
-            var driver = context.Drivers.ToList();
-            return driver.ToList();
+            var drivers = context.drivers.ToList();
+            return drivers;
         }
 
         public Drivers GitDriver(int id)
         {
-            Drivers driver = context.Drivers.Where(x => x.ID == id).FirstOrDefault();
+            Drivers driver = context.drivers.Where(x => x.ID == id).FirstOrDefault();
             return driver;
         }
 
         public bool IsDriversExists(string name)
         {
-            int ct = context.Drivers.Where(x => x.DriverName == name).Count();
+            int ct = context.drivers.Where(x => x.DriverName == name).Count();
             if (ct > 0)
             {
                 _errors = "Name" + name + " Exists Alredy";
@@ -74,7 +78,7 @@ namespace Labbeh.Repository
             else
             {
                 return false;
-            };
+            }
         }
     }
 }

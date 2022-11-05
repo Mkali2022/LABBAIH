@@ -1,10 +1,13 @@
 ﻿using Labbeh.Data;
 using Labbeh.Models;
+using NPOI.Util;
+using System.Text.RegularExpressions;
 
 namespace Labbeh.Repository
 {
     public class Test
     {
+        public const string checkPhone = @"^((?:[+?0?0?966]+)(?:\s?\d{2})(?:\s?\d{7}))$";
         /*
         private readonly DBContext context;
         private string _errors = "";
@@ -46,7 +49,7 @@ namespace Labbeh.Repository
 
         }
         */
-        
+
         public static bool IsValiddd(string name)
         {
             if (name.Length < 4 || name == null)
@@ -57,6 +60,20 @@ namespace Labbeh.Repository
             }
             return true;
 
+        }
+        public static bool PhoneNumber(string phone)
+        {
+            //if (phone != null && Regex.IsMatch(phone, checkPhone)) return true;
+            //else return false;
+            Regex reg = new Regex(checkPhone);
+            if (reg.IsMatch(phone))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
     }

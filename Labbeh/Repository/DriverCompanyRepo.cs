@@ -25,11 +25,23 @@ namespace Labbeh.Repository
             try
             {
 
-                //if (IsDriversCompanyExists(driversCompany.CompanyName)) return false;
-               // if (IsValid(driversCompany)) return false;
-                context.driverCompanies.Add(driversCompany);
-                context.SaveChanges();
-                return true;
+                if (IsDriversCompanyExists(driversCompany.CompanyName)) { return false; }
+                if (Test.PhoneNumber(driversCompany.Phone1)&& (Test.PhoneNumber(driversCompany.Phone2)))
+                {
+                    if (IsValid(driversCompany.CompanyName))
+                    {
+                        context.driverCompanies.Add(driversCompany);
+                        context.SaveChanges();
+                        return true;
+                    }
+                    { 
+                        return false; 
+                    }
+                }
+                {
+                    _errors = "The PhoneNumber Error";
+                    return false;
+                }
             }
             catch (Exception ex)
             {
@@ -102,16 +114,16 @@ namespace Labbeh.Repository
                 return false;
             };
         }
-        private bool IsValid(DriverCompany driversCompany)
+        private bool IsValid(string driversname)
         {
-            /*
-            if (driversCompany.CompanyName.Length < 4 || driversCompaniesCat.CompaniesType == null)
+
+            if (driversname.Length < 4 || driversname.Length == null)
             {
                 _errors = "CompaniesName Must be atleast 4 Characters";
-                return false;
+                return true;
 
-            }*/
-            return true;
+            }
+            return false;
 
         }
     }

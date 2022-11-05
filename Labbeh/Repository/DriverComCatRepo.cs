@@ -21,15 +21,8 @@ namespace Labbeh.Repository
         {
             try
             {
-                //if(IsDriversCompaniesCatExists(driversCompaniesCat.CompaniesType)) return false; 
-
-                //if (IsValid(driversCompaniesCat)) { return false; }
-                
-
-
-                    //if (Test.IsValiddd(driversCompaniesCat.CompaniesType)) return false;
-
-
+                //if(IsDriversCompaniesCatExists(driversCompaniesCat.CompaniesType)) return false;
+                if (IsValid(driversCompaniesCat)) { return false; }
                     context.DriversCompaniesCats.Add(driversCompaniesCat);
                     context.SaveChanges();
                     return true;
