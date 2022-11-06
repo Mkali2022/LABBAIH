@@ -37,11 +37,17 @@ namespace Labbeh.Repository
         {
             try
             {
-                if (IsDriversExists(drivers.DriverName)) return false;
-                context.drivers.Attach(drivers);
-                context.Entry(drivers).State = EntityState.Modified;
-                context.SaveChanges();
-                return true;
+                if (Test.PhoneNumber(drivers.DriverPhone))
+                {
+                    context.drivers.Attach(drivers);
+                    context.Entry(drivers).State = EntityState.Modified;
+                    context.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception ex)
             {

@@ -30,7 +30,7 @@ namespace Labbeh.Controllers
         {
             DriverVehiclesVm vM = new DriverVehiclesVm
             {
-                drivers = _dBContext.Drivers.ToList(),
+                drivers = _dBContext.drivers.ToList(),
                 vehicles = _dBContext.Vehicles.ToList(),
 
             };
@@ -43,7 +43,7 @@ namespace Labbeh.Controllers
 
             driverVehicle.Code = vM.Code;
             driverVehicle.UsingDate = vM.UsingDate;
-            driverVehicle.DriverID = _dBContext.Drivers.Find(vM.DriverID).ID;
+            driverVehicle.DriverID = _dBContext.drivers.Find(vM.DriverID).ID;
             driverVehicle.VehicleID = _dBContext.Vehicles.Find(vM.VehicleID).ID;
             bool bolret = false;
             string errMessage = "";
@@ -75,7 +75,7 @@ namespace Labbeh.Controllers
         {
             DriverVehiclesVm vM = new DriverVehiclesVm
             {
-                drivers = _dBContext.Drivers.ToList(),
+                drivers = _dBContext.drivers.ToList(),
                 vehicles = _dBContext.Vehicles.ToList(),
 
             };
@@ -86,7 +86,7 @@ namespace Labbeh.Controllers
         {
             driverVehicle.Code = vM.Code;
             driverVehicle.UsingDate = vM.UsingDate;
-            driverVehicle.DriverID = _dBContext.Drivers.Find(vM.DriverID).ID;
+            driverVehicle.DriverID = _dBContext.drivers.Find(vM.DriverID).ID;
             driverVehicle.VehicleID = _dBContext.Vehicles.Find(vM.VehicleID).ID;
             bool bolret = false;
             string errMessage = "";

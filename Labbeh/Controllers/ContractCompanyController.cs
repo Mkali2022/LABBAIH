@@ -1,7 +1,6 @@
 ﻿using Labbeh.Data;
 using Labbeh.IRepository;
 using Labbeh.Models;
-using Labbeh.Repository;
 using Labbeh.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
@@ -126,12 +125,6 @@ namespace Labbeh.Controllers
 
             };
             return View(vM);
-        }
-        public IActionResult GetById(int id)
-        {
-            var comCon = _driverCompContractRepo.GitDriverCompContractByID(id);
-
-            return View(comCon);
         }
 
     }

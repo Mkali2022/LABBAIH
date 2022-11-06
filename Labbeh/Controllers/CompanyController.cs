@@ -51,7 +51,6 @@ namespace Labbeh.Controllers
         [HttpPost]
         public IActionResult CreateCompany(CompanyCategory vM, DriverCompany driverCompany)
         {
-            
             driverCompany.Code = vM.Code;
             driverCompany.CompanyName = vM.CompanyName;
             driverCompany.Phone1 = vM.Phone1;
@@ -76,6 +75,7 @@ namespace Labbeh.Controllers
                 TempData["ErrorMessage"] = errMessage;
                 ModelState.AddModelError("", errMessage);
                 return View(vM);
+                //return RedirectToAction(nameof(Index));
             }
             else
             {
@@ -129,14 +129,22 @@ namespace Labbeh.Controllers
                 return RedirectToAction(nameof(Index));
             }
         }
-        public IActionResult GetById(int id)
+
+        public JsonResult GetNames()
         {
-            var company = _driverCompanyRepo.GitDriverComByID(id);
-
-            return View(company);
+            var names=new string[3]
+            {
+                   "Clara",
+                    "marc",
+                    "Jude"
+            };
+            return new JsonResult(Ok(names));
         }
-
-
+        [HttpPost]
+        public JsonResult PostName(string name)
+        {
+            return new JsonResult(Ok());
+        }
 
 
     }

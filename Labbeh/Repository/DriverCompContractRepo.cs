@@ -18,28 +18,43 @@ namespace Labbeh.Repository
         {
             try
             {
-                if (IsDriversCompContractExists(driverCompContract.ID)) return false;
-                if (IsValid(driverCompContract)) return false;
-                context.DriverCompContracts.Add(driverCompContract);
-                context.SaveChanges();
-                return true;
+                if (Test.PhoneNumber(driverCompContract.Phone1) && (Test.PhoneNumber(driverCompContract.Phone2)))
+                {
+                    if (IsDriversCompContractExists(driverCompContract.ID)) return false;
+                    //if (IsValid(driverCompContract)) return false;
+                    context.DriverCompContracts.Add(driverCompContract);
+                    context.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false; 
+                }
             }
             catch (Exception ex)
             {
                 _errors = "Create Failed -sql Exeception Occured , Error Info : " + ex.Message;
                 return false;
             }
+            
         }
 
         public bool Edit(DriverCompContract driverCompContract)
         {
             try
             {
-                if (IsDriversCompContractExists(driverCompContract.ID)) return false;
-                context.DriverCompContracts.Attach(driverCompContract);
-                context.Entry(driverCompContract).State = EntityState.Modified;
-                context.SaveChanges();
-                return true;
+                if (Test.PhoneNumber(driverCompContract.Phone1) && (Test.PhoneNumber(driverCompContract.Phone2)))
+                {
+                    if (IsDriversCompContractExists(driverCompContract.ID)) return false;
+                    context.DriverCompContracts.Attach(driverCompContract);
+                    context.Entry(driverCompContract).State = EntityState.Modified;
+                    context.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception ex)
             {

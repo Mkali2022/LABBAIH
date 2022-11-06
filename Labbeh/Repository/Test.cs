@@ -63,8 +63,7 @@ namespace Labbeh.Repository
         }
         public static bool PhoneNumber(string phone)
         {
-            //if (phone != null && Regex.IsMatch(phone, checkPhone)) return true;
-            //else return false;
+            
             Regex reg = new Regex(checkPhone);
             if (reg.IsMatch(phone))
             {

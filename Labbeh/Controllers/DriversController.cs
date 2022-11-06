@@ -17,13 +17,10 @@ namespace Labbeh.Controllers
         {
             _driverRepo = driverRepo;
             _dbContext = dBContext;
-
-
         }
         public IActionResult Index()
         {
             var driver = _driverRepo.GitAllDriver();
-
             return View(driver.ToList());
         }
         [HttpGet]
@@ -33,9 +30,12 @@ namespace Labbeh.Controllers
             {
                 driversCompaniesCats = _dbContext.DriversCompaniesCats.ToList(),
                 driverCompanies = _dbContext.driverCompanies.ToList(),
-
             };
             return View(vM);
+            //var u = new DriversCompaniesCat();
+            //ViewBag.DropDownList = u.CompaniesType; 
+
+            //return View(u);
         }
         [HttpPost]
         public IActionResult Create(DriversVm vM, Drivers driver)
@@ -54,9 +54,7 @@ namespace Labbeh.Controllers
             string errMessage = "";
             try
             {
-
                 bolret = _driverRepo.Create(driver);
-
             }
             catch (Exception ex)
             {
@@ -75,7 +73,6 @@ namespace Labbeh.Controllers
                 return RedirectToAction(nameof(Index));
             }
         }
-
         public IActionResult Edit()
         {
             DriversVm vM = new DriversVm

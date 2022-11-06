@@ -92,11 +92,5 @@ namespace Labbeh.Controllers
                 return RedirectToAction(nameof(Index));
             }
         }
-        public IActionResult GetById(int id)
-        {
-            var category = _driverComCatRepo.GitDriverComCatByID(id);
-
-            return View(category);
-        }
     }
 }

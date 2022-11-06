@@ -72,10 +72,17 @@ namespace Labbeh.Repository
             try
             {
                 if (IsDriversCompanyExists(driversCompany.CompanyName)) return false;
-                context.driverCompanies.Attach(driversCompany);
-                context.Entry(driversCompany).State = EntityState.Modified;
-                context.SaveChanges();
-                return true;
+                if (Test.PhoneNumber(driversCompany.Phone1) && (Test.PhoneNumber(driversCompany.Phone2)))
+                {
+                    context.driverCompanies.Attach(driversCompany);
+                    context.Entry(driversCompany).State = EntityState.Modified;
+                    context.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception ex)
             {

@@ -43,7 +43,7 @@ namespace Labbeh.Repository
             {
                 //if (IsDriversCompaniesCatExists(driversCompaniesCat.CompaniesType)) return false;
 
-
+                if (IsValid(driversCompaniesCat)) { return false; }
                 context.DriversCompaniesCats.Attach(driversCompaniesCat);
                 context.Entry(driversCompaniesCat).State = EntityState.Modified;
                 context.SaveChanges();

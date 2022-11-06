@@ -17,9 +17,9 @@ namespace Labbeh.Repository
         {
             try
             {
-                //if(IsVehiclesExists(vehicles.VehicleName)) return false; 
+                if (IsVehiclesExists(vehicles.VehicleName)) { return false; } 
 
-                //if (IsValid(vehicles)) { return false; }
+                if (IsValid(vehicles)) { return false; }
 
                 context.Vehicles.Add(vehicles);
                 context.SaveChanges();
@@ -37,9 +37,7 @@ namespace Labbeh.Repository
         {
             try
             {
-                //if (IsDriversCompaniesCatExists(driversCompaniesCat.CompaniesType)) return false;
-
-
+                if (IsValid(vehicles)) { return false; }
                 context.Vehicles.Attach(vehicles);
                 context.Entry(vehicles).State = EntityState.Modified;
                 context.SaveChanges();
@@ -81,7 +79,7 @@ namespace Labbeh.Repository
             else
             {
                 return false;
-            };
+            }
 
 
         }
