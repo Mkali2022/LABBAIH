@@ -32,10 +32,6 @@ namespace Labbeh.Controllers
                 driverCompanies = _dbContext.driverCompanies.ToList(),
             };
             return View(vM);
-            //var u = new DriversCompaniesCat();
-            //ViewBag.DropDownList = u.CompaniesType; 
-
-            //return View(u);
         }
         [HttpPost]
         public IActionResult Create(DriversVm vM, Drivers driver)

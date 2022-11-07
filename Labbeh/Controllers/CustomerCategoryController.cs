@@ -6,36 +6,36 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Labbeh.Controllers
 {
-    public class CompanyCategoryController : Controller
+    public class CustomerCategoryController : Controller
     {
-        private readonly IDriverComCatRepo _driverComCatRepo;
+        private readonly ICustomerCategoryRepo _customerCategoryRepo;
         private readonly DBContext _dBContext;
-        public CompanyCategoryController(IDriverComCatRepo driverComCatRepo,DBContext dBContext)
+        public CustomerCategoryController(DBContext dBContext, ICustomerCategoryRepo customerCategoryRepo)
         {
-            _driverComCatRepo = driverComCatRepo;
+            _customerCategoryRepo = customerCategoryRepo;
             _dBContext = dBContext;
         }
         public IActionResult Index()
         {
-            var category = _driverComCatRepo.GitAllDriverComCat();
-            return View(category.ToList());
+            var customerCat= _customerCategoryRepo.GitAllCustomerCat();
+            return View(customerCat.ToList());
         }
         [HttpGet]
         public IActionResult Create()
         {
-            DriversCompaniesCat driversCompaniesCat = new DriversCompaniesCat();
-            return View(driversCompaniesCat);
+            CustomerCategory customerCategory = new CustomerCategory();
+            return View(customerCategory);
 
         }
         [HttpPost]
-        public IActionResult Create(DriversCompaniesCat driversCompaniesCat)
+        public IActionResult Create(CustomerCategory customerCategory)
         {
 
             bool bolret = false;
             string errMessage = "";
             try
             {
-                bolret = _driverComCatRepo.Create(driversCompaniesCat);
+                bolret = _customerCategoryRepo.Create(customerCategory);
 
             }
             catch (Exception ex)
@@ -44,32 +44,33 @@ namespace Labbeh.Controllers
             }
             if (bolret == false)
             {
-                errMessage = errMessage + " " + _driverComCatRepo.GetErrors();
+                errMessage = errMessage + " " + _customerCategoryRepo.GetErrors();
                 TempData["ErrorMessage"] = errMessage;
                 ModelState.AddModelError("", errMessage);
-                return View(driversCompaniesCat);
+                return View(customerCategory);
             }
             else
             {
-                TempData["SuccessMessage"] = "" + driversCompaniesCat.CompaniesType + " Created Successfully";
+                TempData["SuccessMessage"] = "" + customerCategory.CategoyName + " Created Successfully";
                 return RedirectToAction(nameof(Index));
             }
 
         }
+
         public IActionResult Edit()
         {
-            DriversCompaniesCat driversCompaniesCat = new DriversCompaniesCat();
+            CustomerCategory customerCategory = new CustomerCategory();
             TempData.Keep();
-            return View(driversCompaniesCat);
+            return View(customerCategory);
         }
         [HttpPost]
-        public IActionResult Edit(DriversCompaniesCat driversCompaniesCat)
+        public IActionResult Edit(CustomerCategory customerCategory)
         {
             bool bolret = false;
             string errMessage = "";
             try
             {
-                bolret = _driverComCatRepo.Edit(driversCompaniesCat);
+                bolret = _customerCategoryRepo.Edit(customerCategory);
 
             }
             catch (Exception ex)
@@ -82,15 +83,20 @@ namespace Labbeh.Controllers
 
             if (bolret == false)
             {
-                errMessage = errMessage + " " + _driverComCatRepo.GetErrors();
+                errMessage = errMessage + " " + _customerCategoryRepo.GetErrors();
                 TempData["ErrorMessage"] = errMessage;
                 ModelState.AddModelError("", errMessage);
-                return View(driversCompaniesCat);
+                return View(customerCategory);
             }
             else
             {
                 return RedirectToAction(nameof(Index));
             }
+        }
+        public IActionResult GetById(int id)
+        {
+            var customerCat = _customerCategoryRepo.GitCustomerCatByID(id);
+            return View(customerCat);
         }
     }
 }

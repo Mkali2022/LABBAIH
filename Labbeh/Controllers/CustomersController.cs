@@ -6,36 +6,36 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Labbeh.Controllers
 {
-    public class CompanyCategoryController : Controller
+    public class CustomersController : Controller
     {
-        private readonly IDriverComCatRepo _driverComCatRepo;
+        private readonly ICustomersRepo _customersRepo;
         private readonly DBContext _dBContext;
-        public CompanyCategoryController(IDriverComCatRepo driverComCatRepo,DBContext dBContext)
+        public CustomersController(DBContext dBContext, ICustomersRepo customersRepo)
         {
-            _driverComCatRepo = driverComCatRepo;
+            _customersRepo = customersRepo;
             _dBContext = dBContext;
         }
         public IActionResult Index()
         {
-            var category = _driverComCatRepo.GitAllDriverComCat();
-            return View(category.ToList());
+            var customer = _customersRepo.GitAllCustomer();
+            return View(customer.ToList());
         }
         [HttpGet]
         public IActionResult Create()
         {
-            DriversCompaniesCat driversCompaniesCat = new DriversCompaniesCat();
-            return View(driversCompaniesCat);
+            Customers customers = new Customers();
+            return View(customers);
 
         }
         [HttpPost]
-        public IActionResult Create(DriversCompaniesCat driversCompaniesCat)
+        public IActionResult Create(Customers customers)
         {
 
             bool bolret = false;
             string errMessage = "";
             try
             {
-                bolret = _driverComCatRepo.Create(driversCompaniesCat);
+                bolret = _customersRepo.Create(customers);
 
             }
             catch (Exception ex)
@@ -44,33 +44,33 @@ namespace Labbeh.Controllers
             }
             if (bolret == false)
             {
-                errMessage = errMessage + " " + _driverComCatRepo.GetErrors();
+                errMessage = errMessage + " " + _customersRepo.GetErrors();
                 TempData["ErrorMessage"] = errMessage;
                 ModelState.AddModelError("", errMessage);
-                return View(driversCompaniesCat);
+                return View(customers);
             }
             else
             {
-                TempData["SuccessMessage"] = "" + driversCompaniesCat.CompaniesType + " Created Successfully";
+                TempData["SuccessMessage"] = "" + customers.CustomerName + " Created Successfully";
                 return RedirectToAction(nameof(Index));
             }
 
         }
+
         public IActionResult Edit()
         {
-            DriversCompaniesCat driversCompaniesCat = new DriversCompaniesCat();
+            Customers customers = new Customers();
             TempData.Keep();
-            return View(driversCompaniesCat);
+            return View(customers);
         }
         [HttpPost]
-        public IActionResult Edit(DriversCompaniesCat driversCompaniesCat)
+        public IActionResult Edit(Customers customers)
         {
             bool bolret = false;
             string errMessage = "";
             try
             {
-                bolret = _driverComCatRepo.Edit(driversCompaniesCat);
-
+                bolret = _customersRepo.Edit(customers);
             }
             catch (Exception ex)
             {
@@ -82,15 +82,20 @@ namespace Labbeh.Controllers
 
             if (bolret == false)
             {
-                errMessage = errMessage + " " + _driverComCatRepo.GetErrors();
+                errMessage = errMessage + " " + _customersRepo.GetErrors();
                 TempData["ErrorMessage"] = errMessage;
                 ModelState.AddModelError("", errMessage);
-                return View(driversCompaniesCat);
+                return View(customers);
             }
             else
             {
                 return RedirectToAction(nameof(Index));
             }
+        }
+        public IActionResult GetById(int id)
+        {
+            var customer = _customersRepo.GitCustomerByID(id);
+            return View(customer);
         }
     }
 }
