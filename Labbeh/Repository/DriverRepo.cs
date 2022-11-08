@@ -72,19 +72,5 @@ namespace Labbeh.Repository
             Drivers driver = context.drivers.Where(x => x.ID == id).FirstOrDefault();
             return driver;
         }
-
-        public bool IsDriversExists(string name)
-        {
-            int ct = context.drivers.Where(x => x.DriverName == name).Count();
-            if (ct > 0)
-            {
-                _errors = "Name" + name + " Exists Alredy";
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
     }
 }
