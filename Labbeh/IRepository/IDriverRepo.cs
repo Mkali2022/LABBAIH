@@ -8,7 +8,6 @@ namespace Labbeh.IRepository
         public Drivers GitDriver(int id);
         bool Create(Drivers drivers);
         bool Edit(Drivers drivers);
-        public bool IsDriversExists(string name);
         public string GetErrors();
 
     }

@@ -1,0 +1,15 @@
+﻿@model Labbeh.ViewModel.CustomerCusCatVM
+@*@{
+    ViewData["Title"] = "Home Page";
+}*@
+<div class="container">
+    <form class="form-group" method="post" asp-action="Create">
+        <label class="col-form-label">CustomerCategory</label>
+        <select class="form-control" asp-for="CustomerCatID" asp-items="@(new SelectList(Model.customerCategories,"ID","CategoyName"))"></select>
+        <label class="col-form-label">Customer</label>
+        <select class="form-control" asp-for="CustomerID" asp-items="@(new SelectList(Model.customers,"ID","CustomerName"))"></select>
+        <label class="col-form-label">CurrentDate</label>
+        <input asp-for="CurrentDate" class="form-control" />
+        <button class="btn btn-block btn-outline-dark mt-2" type="submit" value="Create">Save Driver</button>
+    </form>
+</div>
