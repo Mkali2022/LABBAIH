@@ -1,6 +1,8 @@
 ﻿using Labbeh.Data;
 using Labbeh.IRepository;
 using Labbeh.Models;
+using Labbeh.ViewModel;
+using Microsoft.EntityFrameworkCore;
 
 namespace Labbeh.Repository
 {
@@ -15,27 +17,50 @@ namespace Labbeh.Repository
 
         public bool Create(DriversContract driversContract)
         {
-            throw new NotImplementedException();
+            try
+            {
+                    context.DriversContracts.Add(driversContract);
+                    context.SaveChanges();
+                    return true;
+            }
+            catch (Exception ex)
+            {
+                _errors = "Create Failed -sql Exeception Occured , Error Info : " + ex.Message;
+                return false;
+            }
         }
 
         public bool Edit(DriversContract driversContract)
         {
-            throw new NotImplementedException();
+            try
+            {
+                    context.DriversContracts.Attach(driversContract);
+                    context.Entry(driversContract).State = EntityState.Modified;
+                    context.SaveChanges();
+                    return true;
+            }
+            catch (Exception ex)
+            {
+                _errors = "Updatej Failed - sql Exeception Occured , Error Info : " + ex.Message;
+                return false;
+            }
         }
 
         public string GetErrors()
         {
-            throw new NotImplementedException();
+            return _errors;
         }
 
-        public List<DriversContract> GitAllDriver()
+        public List<DriversContract> GitAllDriverContract()
         {
-            throw new NotImplementedException();
+            var driversContract = context.DriversContracts.ToList();
+            return driversContract;
         }
 
         public DriversContract GitDriversContractById(int id)
         {
-            throw new NotImplementedException();
+            DriversContract driversContract = context.DriversContracts.Where(x => x.ID == id).FirstOrDefault();
+            return driversContract;
         }
     }
 }

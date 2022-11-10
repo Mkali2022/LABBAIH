@@ -4,7 +4,7 @@ namespace Labbeh.IRepository
 {
     public interface IDriverContractRepo
     {
-        List<DriversContract> GitAllDriver();
+        List<DriversContract> GitAllDriverContract();
         public DriversContract GitDriversContractById(int id);
         bool Create(DriversContract driversContract);
         bool Edit(DriversContract driversContract);

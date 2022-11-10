@@ -112,7 +112,7 @@ namespace Labbeh.Controllers
             }
             else
             {
-                TempData["SuccessMessage"] = "" + vM.DriverName + " Created Successfully";
+                TempData["SuccessMessage"] = "" + vM.DriverName + " Edit Successfully";
                 return RedirectToAction(nameof(Index));
             }
         }
