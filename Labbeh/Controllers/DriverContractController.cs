@@ -26,7 +26,7 @@ namespace Labbeh.Controllers
         {
             DriversContractVM vM = new DriversContractVM
             {
-                drivers = _dbContext.drivers.ToList(),
+                drivers = _dbContext.Drivers.ToList(),
                  
             };
             return View(vM);
@@ -40,7 +40,7 @@ namespace Labbeh.Controllers
             driversContract.DateFrom = vM.DateFrom;
             driversContract.DateTo = vM.DateTo;
             driversContract.DriverName = vM.DriverName;
-            driversContract.DriverId = _dbContext.drivers.Find(vM.DriverId).ID;
+            driversContract.DriverId = _dbContext.Drivers.Find(vM.DriverId).ID;
             bool bolret = false;
             string errMessage = "";
             try
@@ -68,7 +68,7 @@ namespace Labbeh.Controllers
         {
             DriversContractVM vM = new DriversContractVM
             {
-                drivers = _dbContext.drivers.ToList(),
+                drivers = _dbContext.Drivers.ToList(),
 
             };
             return View(vM);
@@ -82,7 +82,7 @@ namespace Labbeh.Controllers
             driversContract.DateFrom = vM.DateFrom;
             driversContract.DateTo = vM.DateTo;
             driversContract.DriverName = vM.DriverName;
-            driversContract.DriverId = _dbContext.drivers.Find(vM.DriverId).ID;
+            driversContract.DriverId = _dbContext.Drivers.Find(vM.DriverId).ID;
             bool bolret = false;
             string errMessage = "";
             try

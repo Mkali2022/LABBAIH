@@ -43,7 +43,7 @@ namespace Labbeh.Controllers
             driver.LatitudeDefault = vM.LatitudeDefault;
             driver.LongtitudeDefault = vM.LongtitudeDefault;
             driver.DriverEmail = vM.DriverEmail;
-            driver.Status = vM.Status;
+           // driver.Status = vM.Status;
             driver.DriverTTypeId = _dbContext.DriversCompaniesCats.Find(vM.DriverTTypeId).ID;
             driver.DriverCompanyId = _dbContext.driverCompanies.Find(vM.DriverCompanyId).ID;
             bool bolret = false;
@@ -88,7 +88,7 @@ namespace Labbeh.Controllers
             driver.LatitudeDefault = vM.LatitudeDefault;
             driver.LongtitudeDefault = vM.LongtitudeDefault;
             driver.DriverEmail = vM.DriverEmail;
-            driver.Status = vM.Status;
+            //driver.Status = vM.Status;
             driver.DriverTTypeId = _dbContext.DriversCompaniesCats.Find(vM.DriverTTypeId).ID;
             driver.DriverCompanyId = _dbContext.driverCompanies.Find(vM.DriverCompanyId).ID;
             bool bolret = false;

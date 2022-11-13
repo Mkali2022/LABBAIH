@@ -20,7 +20,7 @@ namespace Labbeh.Repository
                 //if (IsDriversExists(drivers.DriverName)) { return false; }
                 if (Test.PhoneNumber(drivers.DriverPhone))
                 {
-                    context.drivers.Add(drivers);
+                    context.Drivers.Add(drivers);
                     context.SaveChanges();
                     return true;
                 }
@@ -39,7 +39,7 @@ namespace Labbeh.Repository
             {
                 if (Test.PhoneNumber(drivers.DriverPhone))
                 {
-                    context.drivers.Attach(drivers);
+                    context.Drivers.Attach(drivers);
                     context.Entry(drivers).State = EntityState.Modified;
                     context.SaveChanges();
                     return true;
@@ -63,13 +63,13 @@ namespace Labbeh.Repository
 
         public List<Drivers> GitAllDriver()
         {
-            var drivers = context.drivers.ToList();
+            var drivers = context.Drivers.ToList();
             return drivers;
         }
 
         public Drivers GitDriver(int id)
         {
-            Drivers driver = context.drivers.Where(x => x.ID == id).FirstOrDefault();
+            Drivers driver = context.Drivers.Where(x => x.ID == id).FirstOrDefault();
             return driver;
         }
     }

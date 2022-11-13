@@ -432,6 +432,9 @@ namespace Labbeh.Migrations
                     b.Property<int>("DriverCode")
                         .HasColumnType("int");
 
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
                     b.Property<int>("DriverCompanyId")
                         .HasColumnType("int");
 

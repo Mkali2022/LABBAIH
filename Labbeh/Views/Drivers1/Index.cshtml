@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Labbeh.Models.Drivers>
 
 @{
-    Layout = "~/Views/Shared/_LayoutCompany.cshtml";
+    Layout = null;
 }
 
 <!DOCTYPE html>
@@ -36,15 +36,11 @@
             <th>
                 @Html.DisplayNameFor(model => model.DriverEmail)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DriversCompaniesCat)
-            </th>
+           
             <th>
                 @Html.DisplayNameFor(model => model.DriverCompany)
             </th>
-           @* <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>*@
+           
             <th></th>
         </tr>
     </thead>
@@ -70,14 +66,8 @@
                 @Html.DisplayFor(modelItem => item.DriverEmail)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DriversCompaniesCat.CompaniesType)
+                @Html.DisplayFor(modelItem => item.DriverCompany.ID)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DriverCompany.CompanyName)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>*@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.ID">Details</a> |

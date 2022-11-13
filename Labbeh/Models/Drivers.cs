@@ -52,7 +52,7 @@ namespace Labbeh.Models
         [ForeignKey("DriverCompanyId")]
         public DriverCompany? DriverCompany { get; set; }
 
-        public int Status { get; set; }
+        //public int Status { get; set; }
 
         /*
         [Key]

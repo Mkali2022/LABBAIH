@@ -312,6 +312,7 @@ namespace Labbeh.Migrations
                     LatitudeDefault = table.Column<string>(type: "nvarchar(MAX)", nullable: false),
                     LongtitudeDefault = table.Column<string>(type: "nvarchar(MAX)", nullable: false),
                     DriverEmail = table.Column<string>(type: "nvarchar(MAX)", nullable: false),
+                    Status = table.Column<int>(type: "int", nullable: true),
                     DriverTTypeId = table.Column<int>(type: "int", nullable: false),
                     DriverCompanyId = table.Column<int>(type: "int", nullable: false)
                 },

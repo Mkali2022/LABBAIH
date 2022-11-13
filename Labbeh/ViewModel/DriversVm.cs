@@ -15,7 +15,7 @@ namespace Labbeh.ViewModel
         public string DriverEmail { get; set; }
         public int DriverTTypeId { get; set; }
         public int DriverCompanyId { get; set; }
-        public int Status { get; set; }
+        //public int Status { get; set; }
 
     }
 }
