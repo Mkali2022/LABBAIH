@@ -8,6 +8,8 @@ namespace Labbeh.Controllers
 {
     public class CompanyCategoryController : Controller
     {
+
+
         private readonly IDriverComCatRepo _driverComCatRepo;
         private readonly DBContext _dBContext;
         public CompanyCategoryController(IDriverComCatRepo driverComCatRepo,DBContext dBContext)
